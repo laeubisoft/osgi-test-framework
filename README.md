@@ -15,18 +15,6 @@ way), want to run different configurations or run directly from your current mod
 (e.g. the usual maven setup where the test-code is next to your code and executed by 
 maven-surefire as part of that build).
 
-First you need to consider some things:
-
-- you are responsible for setting up what makes your Framework, the good news is that 
-you often do not need setup all bundles, just those required for your test
-- all bundles must be on the classpath of your test, either as a jar or as a folder
-- even though your test will see a full Framework and thus can register services, use 
-declarative services and so on, all bundles share the same classloader. This has advantages 
-(e.g. your test can easily interact with all code in the framework) but also limit 
-the usage of some OSGi feature, e.g. you can't use the same bundle in different versions
-- because of this, lazy activation of bundles do not work and they will always be activated 
-beforehands
-
 ### Configure the framework
 
 The framework is configured using annotations described below.
@@ -65,6 +53,22 @@ public class MyImplTest {
 		... your test code here ...
 }
 ```
+
+
+All bundles by default share the classloader with your test-probe, this is to ensure 
+you can use the same classes in your test as in your bundle. If you like, you can mark a bundle as isolated
+then it will get an own (OSGi managed) classloader:
+```java
+@WithBundle("api-bundle")
+@WithBundle(value = "impl-bundle", isolated = true)
+public class MyImplTest {
+		... your test code here ...
+}
+```
+
+You usually want API interfaces you test to be shared, but implementation bundles you 
+only access indirectly through a (shared) service interface are good candidates to 
+use isolated classloaders.
 
 ### Export additional packages
 

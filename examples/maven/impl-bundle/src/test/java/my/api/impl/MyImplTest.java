@@ -14,8 +14,10 @@ import de.laeubisoft.osgi.junit5.framework.extension.FrameworkExtension;
 import de.laeubisoft.osgi.junit5.framework.services.FrameworkEvents;
 import my.api.HelloWorld;
 
-@WithBundle("api-bundle")
-@WithBundle(value = "impl-bundle", start = true)
+// The API interfaces are shared between the test and the OSGi framework bundles
+@WithBundle("api-bundle") 
+// The impl bundle is not shared, thus we can only access it trough the service registry
+@WithBundle(value = "impl-bundle", start = true, isolated = true)
 @UseFelixServiceComponentRuntime
 public class MyImplTest {
 

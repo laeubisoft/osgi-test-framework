@@ -2,10 +2,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.laeubisoft</groupId>
 	<artifactId>osgi-test-framework</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 
 	<description>Supports embedding an OSGi Framework into JUnit 5 with minimal effort</description>
 	<name>JUnit5 Embedded OSGi Test Framework</name>
+	<url>https://github.com/laeubisoft/osgi-test-framework</url>
 	<scm>
 		<url>https://github.com/laeubisoft/osgi-test-framework</url>
 		<connection>scm:git:https://github.com/laeubisoft/osgi-test-framework.git</connection>
@@ -101,7 +102,7 @@
 
 	<profiles>
 		<profile>
-			<id>release-sign-artifacts</id>
+			<id>release</id>
 			<activation>
 				<property>
 					<name>performRelease</name>

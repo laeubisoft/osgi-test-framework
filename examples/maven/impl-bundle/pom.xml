@@ -9,7 +9,7 @@
 
 	<properties>
 		<osgi-test-version>1.2.1</osgi-test-version>
-		<osgi-test-framework-version>0.0.1-SNAPSHOT</osgi-test-framework-version>
+		<osgi-test-framework-version>0.0.2-SNAPSHOT</osgi-test-framework-version>
 		<equinox-version>3.18.0</equinox-version>
 	</properties>
 
