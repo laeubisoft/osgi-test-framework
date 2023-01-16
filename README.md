@@ -1,6 +1,16 @@
 # osgi-test-framework
 This is an extension for the [osgi-test library](https://github.com/osgi/osgi-test) that provides an easy way to fire up an embedded framework.
 
+To use it simply add the follwoing dependency to your pom:
+
+```
+<dependency>
+  <groupId>de.laeubisoft</groupId>
+  <artifactId>osgi-test-framework</artifactId>
+  <version>0.0.1</version>
+</dependency>
+```
+
 ## Setup an embedded Testframework with `FrameworkExtension`
 
 `org.osgi.test` itself assumes running inside an OSGI Framework and you can setup one 
