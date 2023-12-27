@@ -151,10 +151,12 @@ things about framework events:
 
 		... your test code here ...
 }
+```
 
 #### Print out information about a Framework
 
 The `FrameworkExtension` provides some useful methods to query the framework state
+
 ```java
 public class MyImplTest {
 
